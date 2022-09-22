@@ -21,7 +21,7 @@ public class OrderItem {
     }
 
     public String toString() {
-        return product.getName() + ", " + String.format("%.2f", product.getPrice()) +
+        return product.getName() + ", $" + String.format("%.2f", product.getPrice()) +
                 " , Quantity: " + quantity + ", Subtotal: $" + String.format("%.2f", subTotal());
     }
 }

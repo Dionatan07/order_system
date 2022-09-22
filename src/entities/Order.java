@@ -71,6 +71,5 @@ public class Order {
         }
         sb.append("Total price: $" + String.format("%.2f", total()));
         return sb.toString();
-
     }
 }

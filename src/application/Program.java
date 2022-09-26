@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class Program {
     public static void main(String[] args) throws ParseException {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Locale.setDefault(Locale.US);
         Scanner key = new Scanner(System.in);
 
@@ -36,7 +36,7 @@ public class Program {
         System.out.print("How many items to this order? ");
         int n = key.nextInt();
 
-        for (int i = 1; i <= n;i++){
+        for (int i = 1; i <= n; i++) {
             key.nextLine();
             System.out.println("Enter #" + i + " item data: ");
             System.out.print("Product name: ");
@@ -44,7 +44,7 @@ public class Program {
             System.out.print("Product price: ");
             double productPrice = key.nextDouble();
 
-            Product product= new Product(productName, productPrice);
+            Product product = new Product(productName, productPrice);
 
             System.out.print("Quantity: ");
             int quantity = key.nextInt();

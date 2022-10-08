@@ -1,7 +1,6 @@
-#SISTEMA DE PEDIDOS
+### SISTEMA DE PEDIDOS
 
-##Utilização de:
+#### Utilização de:
 
-###New Date()
-
-###BufferedReader e FileReader
+##### New Date(); 
+##### BufferedReader e FileReader;

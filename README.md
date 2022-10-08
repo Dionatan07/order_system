@@ -1,5 +1,5 @@
 #SISTEMA DE PEDIDOS
 
 ##Utilização de:
-###New Date();
+###New Date()
 ###BufferedReader e FileReader

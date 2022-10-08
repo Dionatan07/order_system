@@ -2,6 +2,9 @@ package application;
 
 import entities.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,28 +35,31 @@ public class Program {
 
         Order order = new Order(new Date(), status, client);
 
-        System.out.println();
-        System.out.print("How many items to this order? ");
-        int n = key.nextInt();
+        String path = "C:\\temp\\order.txt";
 
-        for (int i = 1; i <= n; i++) {
-            key.nextLine();
-            System.out.println("Enter #" + i + " item data: ");
-            System.out.print("Product name: ");
-            String productName = key.nextLine();
-            System.out.print("Product price: ");
-            double productPrice = key.nextDouble();
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
-            Product product = new Product(productName, productPrice);
+            String line = br.readLine();
 
-            System.out.print("Quantity: ");
-            int quantity = key.nextInt();
+            while (line != null) {
+                String[] vect = line.split(";");
+                String productName = vect[0];
+                double productPrice = Double.parseDouble(vect[1]);
 
-            OrderItem orderItem = new OrderItem(quantity, productPrice, product);
+                Product product = new Product(productName, productPrice);
 
-            order.addItem(orderItem);
+                int quantity = Integer.parseInt(vect[2]);
+
+                OrderItem orderItem = new OrderItem(quantity, productPrice, product);
+
+                order.addItem(orderItem);
+                line = br.readLine();
+            }
+
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
-
         System.out.println();
         System.out.println();
         System.out.println("ORDER SUMMARY: ");
@@ -62,7 +68,6 @@ public class Program {
         System.out.println(client);
         System.out.println("Order items: ");
         System.out.println(order);
-
 
     }
 }
